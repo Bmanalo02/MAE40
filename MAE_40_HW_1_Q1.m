@@ -14,7 +14,7 @@ x
 Vo_LPF2_damped=simplify(x(4));                                              % x(4) is Vo
 Vi_LPF2_damped=L*s*(simplify(x(1)))+(Vo_LPF2_damped);                       % Solve for Vi given solved x
 Omega42=(1/sqrt(L*C));
-Transfer_Function=simplify((Omega42*Vo_LPF2_damped)/(Omega42*Vi_LPF2_damped))         % Given G(s)=Vo/Vi, solve for transfer function
+Transfer_Function=simplify((Omega42*Vo_LPF2_damped)/(Omega42*Vi_LPF2_damped)) %Given G(s)=Vo/Vi, solve for transfer function
 %-------------------------------------------------------------------------
 %                               Question 2
 %-------------------------------------------------------------------------
@@ -33,15 +33,15 @@ figure(3), RR_bode(F_LPF2_damped3)                                          %plo
 A  =      [-1   1   1   0    0   0;                                         %IL+IC1+IR=0 
             0   0   1  -1    0   0;                                         %IC2-IR=0
           -L*s  0   0   0    1   0;                                         %V0-VI-L(IC)S=0
-            0   1   0   0  -C1*s  0;                                         %IC1*S-C*V0*S=0
-            0   0   1   0    0  -Cd*s;                                         %IC2*S-C*VINT*S=0
+            0   1   0   0  -C1*s  0;                                        %IC1*S-C*V0*S=0
+            0   0   1   0    0  -Cd*s;                                      %IC2*S-C*VINT*S=0
             0   0   0   R   -1   1;]                                        %IR*R+VINT-VO=0
 b =       [ 0;  0;  Vi; 0;   0;  0];                                        
-x=A\b;                                                                      %  Ax = b, solve for unknown values of x
+x=A\b;                                                                      %Ax = b, solve for unknown values of x
 x 
-Vo_LPF2_damped=simplify(x(5));                                              % x(4) is Vo
-Vi_LPF2_damped=-1*L*s*(simplify(x(1)))+(Vo_LPF2_damped);                       % Solve for Vi given solved x
-Transfer_Function=simplify((Vo_LPF2_damped)/(Vi_LPF2_damped))         % Given G(s)=Vo/Vi, solve for transfer function
+Vo_LPF2_damped=simplify(x(5));                                              %x(4) is Vo
+Vi_LPF2_damped=-1*L*s*(simplify(x(1)))+(Vo_LPF2_damped);                    %Solve for Vi given solved x
+Transfer_Function=simplify((Vo_LPF2_damped)/(Vi_LPF2_damped))               %Given G(s)=Vo/Vi, solve for transfer function
 %-------------------------------------------------------------------------
 %                               Question 4
 %-------------------------------------------------------------------------
